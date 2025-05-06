@@ -1,6 +1,8 @@
 import "./navbar.scss";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <nav>
       <div className="left">
@@ -20,9 +22,13 @@ function Navbar() {
         </a>
 
         <div className="menuIcon">
-          <img src="/menu.png" alt="" />
+          <img
+            src="/menu.png"
+            alt=""
+            onClick={() => setOpen((prev) => !prev)}
+          />
         </div>
-        <div className="menu">
+        <div className={open ? "menu active" : "menu"}>
           <a href="">Accueil</a>
           <a href="">A Propos</a>
           <a href="">Contacte</a>
